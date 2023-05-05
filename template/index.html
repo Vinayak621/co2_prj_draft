@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Carbon Emission Classifier</title>
+    <link rel="stylesheet" href={{url_for('static',filename='style1.css')}}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+  </head>
+  <body>
+
+    <section>
+      <input type="checkbox" id="check">
+      <header>
+        </div>
+        <h2 ><a href="#" class="logo">Carbon Emission <br/>Classifier</a></h2>
+        <div class="navigation">
+          <a href="#">Home</a>
+          <a href="#about">About Carbon Classifier</a>
+          <a href="#dashboard">Emission-Visual</a>
+          <a href="#info">Developer</a>
+          <a href="/predict">Predictor</a>
+          <!-- <a href="/predict">Folium</a> -->
+        </div>
+        <label for="check">
+        <i class="fas fa-bars menu-btn"></i>
+        <i class="fas fa-times close-btn"></i>
+        </label>
+      </header>
+      <div class="content" style="margin-top: 8%;">
+        <div class="info">
+          <h2>Prevent Climate <br><span>Change Today</span></h2>
+          <p> "Plant trees to bring the rains and get rid of the summer's heat.” - Trees help reduce and moderate the temperature and climate, which is why it is so important that we have more of them</p>
+          <a href="#about" class="info-btn">More info</a>
+        </div>
+      </div>
+      <div class="media-icons">  
+        <a href="https://github.com/Vinayak621/CarbonInfrastructure"><i class="fab fa-github"></i></a>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Carbon Classifier</h2>
+      <p class="about-content" style="text-align: justify;">Carbon Classifier is a web application which is used to classify whether the
+         area of land taken up for survey is either an high carbon emitter or not.Carbon emissions contribute to climate change by increasing the concentration of greenhouse gases in the atmosphere, trapping heat and leading to a rise in global temperatures. This has numerous negative impacts such as rising
+          sea levels, increased frequency and intensity of natural disasters, changes in precipitation patterns, and effects on biodiversity.
+          Also contribute to air pollution, which can have negative health impacts such as respiratory problems, cardiovascular disease, and lung cancer.
+          When carbon dioxide is absorbed by the ocean, it reacts with seawater to form carbonic acid, which decreases the pH level of the ocean(ocean acidification).
+          Along with these, carbon emissions also contribute to deforestation and water scarcity.
+          These hazards make it crucial to reduce carbon emissions and transition to more sustainable energy sources in order to mitigate the negative impacts on the environment and human health.
+          Through this project we have taken up the initiation  to implement
+         green infrastructure to mitgate climate change impacts caused due to the hazardous effects of carbon emissions.
+      The codes for this project can be checked in my <a href="https://github.com/Vinayak621/CarbonInfrastructure"
+       style="color: black; font-weight: bold;">github repo.</a>
+      </p>
+    </section>
+    
+
+    <section id="dashboard">
+      <h2>Emission-Visuals</h2>
+      <p style="text-align: justify;">This section talks about the map depicting the top ten highest carbon emitting countries
+         for a given period of time(1 year) . To see the coded part of the visuals you can refer here <a href="../static/rain.pbix" 
+         style="color: black; font-weight: bold;">Visuals</a>
+        ipynb file. These maps are created using folium, a python library which allows users
+      to create various types of maps, including scatter plots, heatmaps, choropleth maps, and more. 
+      The maps created by folium can be customized with various attributes such as zoom
+       level, map tiles, markers, popups, tooltips, and more.</p>
+      <img class="dashboard-image" src="../static/dashboard.png" alt="1">
+      <div>
+        <img src="../static/1.png" alt="1">
+        <img src="../static/3.png" alt="3">
+        <img src="../static/4.png" alt="4">
+        <img src="../static/5.png" alt="5">
+        <img src="../static/6.png" alt="6">
+        <img src="../static/7.png" alt="7">
+        <img src="../static/8.png" alt="8">
+        <img src="../static/9.png" alt="9">
+      </div>
+    </section>
+
+    <section id="info">
+      <!-- <div>
+        <img src="../static/vasanth1.png" alt="Vasanth">
+      </div> -->
+      <div>
+        <h2>Conclusion</h2>
+        <p class="about-content" style="text-align: justify;"> The planning, design, and implementation of natural and 
+          semi-natural elements in urban areas to give ecological, social, and economic advantages
+           constitute a key endeavour known as a "green infrastructure project." Parks, urban forests, green roofs, and water bodies
+            are just a few examples of the different components that make up green infrastructure. Green infrastructure may improve air 
+            and water quality, increase urban biodiversity, reduce the urban heat island effect, 
+            and promote human health and well-being. By lowering carbon emissions, preparing for extreme weather, and boosting resilience, green infrastructure is a useful instrument for decreasing the effects of climate change.
+             All things considered, a green infrastructure project is an essential part of sustainable urban development that 
+          may help make cities more livable, resilient, and healthy for present and future generations.
+          Collecting data on carbon emissions and determining the key factors that contribute to carbon emissions are the two steps of a project
+           to reduce carbon emissions using the RandomForestClassifier classification ML algorithm. The model is trained using the random forest classification technique,
+            and its performance is assessed using metrics like accuracy, precision, recall, and F1 score. With the aid of this study, carbon emissions may be predicted and the main 
+            causes of carbon emissions can be determined. The data produced by this research can be used to create plans to lower carbon emissions and lessen the effects of climate change.
+             Overall, this effort is crucial for solving one of the most pressing global issues of our day and can help ensure that our planet has a sustainable future.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        Developed with ❤️ to mitigate climate change impacts.
+      </p>
+      <!-- <div class="media-icons">
+        <a href="https://www.linkedin.com/in/vasanth-p-90826218b/"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/Vasanthengineer4949"><i class="fab fa-github"></i></a>
+        <a href="https://twitter.com/V51430"><i class="fab fa-twitter"></i></a>
+      </div> -->
+    </footer>
+
+  </body>
+</html>

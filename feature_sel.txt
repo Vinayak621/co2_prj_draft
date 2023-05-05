@@ -1,0 +1,9 @@
+data2['classify'] = np.where(((data2['cereal_yield'] > 3012.24) &  (data2['en_per_cap'] > 1888.0))|((data2['prot_area_perc']>12.28)|((data2['pop_growth_perc']>1.421))&(data2['pop_urb_aggl_perc'] > 21.41)), 'red', 'green')
+data = data[data['country']!='ARE']
+
+# print shape after removing the outliers
+print("Shape of the dataset after removing the ARE outliers:")
+data.shape
+data2=data2.drop(['country','year'],axis=1)
+
+feat_cols=['cereal_yield', 'en_per_cap', 'pop_urb_aggl_perc', 'prot_area_perc', 'pop_growth_perc']

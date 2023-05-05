@@ -1,0 +1,122 @@
+<link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Custom CSS -->
+    <style>
+      body {
+        background-color: #f1f1f1;
+      }
+      .card {
+        margin: 50px auto;
+        max-width: 700px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      .card-header {
+        background-color: #28a745;
+        color: #fff;
+        text-align: center;
+        font-size: 30px;
+        padding: 30px 0;
+        border-radius: 10px 10px 0 0;
+      }
+      .card-body {
+        padding: 30px;
+      }
+      .form-group label {
+        font-weight: bold;
+      }
+      .form-control {
+        border-radius: 5px;
+      }
+      .btn-primary {
+        background-color: #28a745;
+        border-color: #28a745;
+      }
+      .btn-primary:hover {
+        background-color: #218838;
+        border-color: #1e7e34;
+      }
+      #carbon-offset {
+        font-size: 14px;
+        margin-top: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header">Carbon Emissions Calculator</div>
+      <div class="card-body">
+        <p>
+          Calculate your carbon emissions from driving by filling in the form
+          below:
+        </p>
+      <form method="post" action="/calculate">
+        <label for="make">Make:</label>
+        <select name="name" id="make">
+          <option value="">--Select a make--</option>
+          {% for make in makes %}
+          <option value="{{ make }}">{{ make }}</option>
+          {% endfor %}</select
+        ><br /><br />
+        <label for="model">Model:</label>
+        <select name="model" id="model" disabled>
+          <option value="">--Select a model--</option></select
+        ><br /><br />
+
+        <label for="miles">Miles Driven:</label>
+        <input
+          type="number"
+          name="miles"
+          id="miles"
+          min="0"
+          required
+        /><br /><br />
+
+        <input type="submit" value="Calculate" />
+      </form>
+    </div>
+
+    <!-- <div class="card"> -->
+      <p style="text-align: justify;">
+        The average passenger vehicle in the US emits approximately 4.6 metric
+        tons of carbon dioxide<br> per year. One way to offset this emissions is by
+        planting trees. <br>It is estimated that a mature tree can absorb up to 48
+        pounds of carbon dioxide per year,<br> so planting around 95 trees per year
+        would offset the carbon emissions of an average <br>passenger vehicle.
+      </p>
+
+      <p style="text-align: justify;">
+        Note that planting trees alone cannot solve the problem of carbon
+        emissions, but it can be a <br>small step towards reducing the impact of our
+        daily activities on the environment.
+      </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#make").change(function () {
+          var make = $(this).val();
+          if (make === "") {
+            $("#model").prop("disabled", true);
+            $("#model").html('<option value="">--Select a model--</option>');
+          } else {
+            $.getJSON("/models", { make: make }, function (data) {
+              var options = '<option value="">--Select a model--</option>';
+              for (var i = 0; i < data.length; i++) {
+                options +=
+                  '<option value="' + data[i] + '">' + data[i] + "</option>";
+              }
+              $("#model").html(options);
+              $("#model").prop("disabled", false);
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

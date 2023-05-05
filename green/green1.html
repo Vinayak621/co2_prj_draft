@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Green Zone</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href={{url_for('static',filename='main.css')}}>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <div class="content">
+          <div class="inner">
+            <h1>Your region lies in the green zone</h1>
+            <p>Implementation of green infrastructure is not required.</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Footer -->
+      <footer id="footer"></footer>
+    </div>
+
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='util.js') }}"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>

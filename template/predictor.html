@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href={{url_for('static',filename='predictor.css')}}>
+    <title>Carbon Emission prediction</title>
+  </head>
+  <body>
+    <section id="prediction-form">
+      <form class="form" action="/predict" , method="POST">
+        <h1 class="my-3 text-center">Emission Predictor</h1>
+        <div class="row">
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="cereal_yield" class="cereal_yield">
+                Cereal yield (kg per hectare)</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="cereal_yield"
+                name="cereal_yield"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="fdi_perc_gdp" class="fdi_perc_gdp"
+                >Foreign direct investment(%of GDP)</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="fdi_perc_gdp"
+                name="fdi_perc_gdp"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="en_per_gdp" class="en_per_gdp"
+                >Energy use per units of GDP</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="en_per_gdp"
+                name="en_per_gdp"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="en_per_cap" class="en_per_cap"
+                >Energy use per capita</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="en_per_cap"
+                name="en_per_cap"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="co2_ttl" class="co2_ttl">CO2 Emissions</label>
+              <input
+                type="text"
+                class="form-control"
+                id="co2_ttl"
+                name="co2_ttl"
+              />
+            </div>
+            <!-- </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="co2_per_cap" class="co2_per_cap"
+                >CO2 Emissions per capita</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="co2_per_cap"
+                name="co2_per_cap"
+              />
+            </div> -->
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="co2_per_gdp" class="co2_per_gdp"
+                >CO2 Emissions per units of GDP</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="co2_per_gdp"
+                name="co2_per_gdp"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="pop_urb_aggl_perc" class="pop_urb_aggl_perc"
+                >Population in urban agglomeration(%)</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="pop_urb_aggl_perc"
+                name="pop_urb_aggl_perc"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="prot_area_perc" class="prot_area_perc"
+                >Terrestrial protected areas(% of total land area)</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="prot_area_perc"
+                name="prot_area_perc"
+              />
+            </div>
+          </div>
+          <!-- <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="gdp" class="gdp">GDP ($)</label>
+              <input type="text" class="form-control" id="gdp" name="gdp" />
+            </div>
+          </div> -->
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="gni_per_cap" class="gni_per_cap"
+                >GNI per capita</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="gni_per_cap"
+                name="gni_per_cap"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="under_5_mort_rate" class="under_5_mort_rate"
+                >Under 5 mortatlity rate(per 1000)</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="under_5_mort_rate"
+                name="under_5_mort_rate"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="pop_growth_perc" class="pop_growth_perc"
+                >Population growth(annual %)</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="pop_growth_perc"
+                name="pop_growth_perc"
+              />
+            </div>
+          </div>
+          <!-- <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="pop" class="pop">Poulation</label>
+              <input type="text" class="form-control" id="pop" name="pop" />
+            </div>
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="urb_pop_growth_perc" class="urb_pop_growth_perc"
+                >Urb_pop_growth_perc</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="urb_pop_growth_perc"
+                name="urb_pop_growth_perc"
+              />
+            </div>
+          </div>
+          <div class="col-md-6 my-2">
+            <div class="md-form">
+              <label for="urb_pop" class="urb_pop">Urban Population</label>
+              <input
+                type="text"
+                class="form-control"
+                id="urb_pop"
+                name="urb_pop"
+              />
+            </div>
+          </div> -->
+
+          <div class="col-md-4 my-4 d-flex align-center justify-content-center">
+            <button
+              type="submit"
+              class="btn btn-info button"
+              style="margin-left: 80%; margin-top: 5%"
+            >
+              Predict
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <div>
+      <h1><center>{{ prediction }}</center></h1>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

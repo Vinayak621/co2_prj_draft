@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Carbon Green Credits Calculator</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style11.css') }}"
+    />
+  </head>
+  <body>
+    <form class="form" action="/calculate" method="post">
+      <h1 class="my-3 text-center">Emission Predictor</h1>
+      <label for="cereal_yield">Cereal Yield:</label>
+      <input type="text" id="cereal_yield" name="cereal_yield" /><br />
+
+      <label for="energy_use_gdp">Energy Use per GDP:</label>
+      <input type="text" id="energy_use_gdp" name="energy_use_gdp" /><br />
+
+      <label for="energy_use_capita">Energy Use per Capita:</label>
+      <input
+        type="text"
+        id="energy_use_capita"
+        name="energy_use_capita"
+      /><br />
+
+      <label for="co2_gdp">CO2 per GDP:</label>
+      <input type="text" id="co2_gdp" name="co2_gdp" /><br />
+
+      <input type="submit" value="Calculate" />
+    </form>
+  </body>
+</html>

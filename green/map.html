@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Deforestation Map</title>
+    <style>
+      /* Center the page contents */
+      body {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Style the header */
+      h1 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      /* Style the paragraph */
+      p {
+        margin-bottom: 20px;
+      }
+
+      /* Style the form */
+      form {
+        margin-bottom: 20px;
+      }
+
+      /* Style the label */
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      /* Style the input fields */
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+      }
+
+      /* Style the submit button */
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      /* Style the error message */
+      .error {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+
+      /* Style the map container */
+      #map-container {
+        height: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Deforestation Map</h1>
+    <p>
+      Deforestation is the permanent destruction of forests in order to make the
+      land available for other uses. The loss of forests can have significant
+      environmental and social impacts, including loss of biodiversity,
+      increased greenhouse gas emissions, and displacement of indigenous
+      communities.
+    </p>
+    <p>
+      Use this tool to explore the extent of deforestation in a particular area.
+    </p>
+
+    <form method="POST" action="/map">
+      <label for="latitude">Latitude:</label>
+      <input
+        type="text"
+        id="latitude"
+        name="latitude"
+        placeholder="Enter latitude"
+        required
+      />
+
+      <label for="longitude">Longitude:</label>
+      <input
+        type="text"
+        id="longitude"
+        name="longitude"
+        placeholder="Enter longitude"
+        required
+      />
+      <label for ='year'>Year:</label>
+      <input
+      type="text"
+      id="year"
+      name="year"
+      placeholder="Enter Year"
+      required
+       />
+
+      <!-- <label for="from_date">From Date:</label>
+      <input
+        type="date"
+        id="from_date"
+        name="from_date"
+        placeholder="Enter the starting date"
+      />
+
+      <label for="to_date">To Date:</label>
+      <input
+        type="date"
+        id="to_date"
+        name="to_date"
+        placeholder="Enter the ending date"
+      /> -->
+
+      <input type="submit" value="Show Map" />
+      <div id="error-message"></div>
+    </form>
+
+    <div id="map-container"></div>
+
+    <script>
+      // Show error message if geocoding fails
+      if (window.location.search.indexOf("geocode_error=true") > -1) {
+        document.getElementById("error-message").textContent =
+          "Error: Could not find location. Please try again.";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="chart.css">
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['Country','Incentives'],
+          ['Japan',2],
+          ['Australia',53],
+          ['United States',33],
+          ['South Korea',11],
+          ['Mexico',1],
+          ['India',19],
+          ['China',11],
+          ['Singapore',29],
+          ['Brazil',12],
+          ['United Kingdom',26],
+          ['Germany',21],
+          ['Spain',10]
+        ]);
+
+        var options = {};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <br/>
+    <br/>
+    <header style="font-size: 40px;text-align: center;">GREEN CREDITS</header>
+    <br/>
+    <br/>
+    <h1 style="margin-left:200px;">Countries Offering Green Tax Credit</h1>
+
+    <div id="regions_div"  style="width: 900px; height: 500px; float: left;">
+
+    </div>
+
+    
+    
+    <div class="loan-calculator">
+      <div class="top">
+        <h2>Green Credits Calculator</h2>
+
+        <form action="#">
+          
+          <div class="group">
+            <div class="title"> Total renewable energy  generated in MWh </div>
+            <input type="text" value="78" class="loan-amount" />
+          </div>
+
+          <div class="group">
+            <div class="title">Total carbon emissions reduced in metric tons </div>
+            <input type="text" value="45" class="interest-rate" />
+          </div>
+
+          <div class="group">
+            <div class="title">Total tax paid during the financial year</div>
+            <input type="text" value="240000" class="loan-tenure" />
+          </div>
+        </form>
+      </div>
+
+      <div class="result">
+        <div class="left">
+          <div class="loan-emi">
+            <h3>Total Savings</h3>
+            <div class="value">123</div>
+          </div>
+
+          <div class="total-interest">
+            <h3>Renewable Energy Credits</h3>
+            <div class="value">1234</div>
+          </div>
+
+          <div class="total-amount">
+            <h3> Carbon Offset Credits </h3>
+            <div class="value">12345</div>
+          </div>
+
+          <button class="calculate-btn">Calculate</button>
+        </div>
+
+        <div class="right">
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
+
+    <script src="main.js"></script>
+    
+  </body>
+</html>
